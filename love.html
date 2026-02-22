@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Reasons I Fell for You ❤️</title>
+
+<style>
+    body{
+        margin:0;
+        height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg,#ff9a9e,#fad0c4);
+        overflow:hidden;
+        text-align:center;
+        color:white;
+    }
+
+    .container{
+        max-width:500px;
+        padding:40px;
+    }
+
+    h1{
+        font-weight:300;
+        margin-bottom:10px;
+    }
+
+    #reason{
+        font-size:22px;
+        margin:30px 0;
+        min-height:60px;
+        transition:0.4s;
+    }
+
+    button{
+        padding:14px 30px;
+        border:none;
+        border-radius:30px;
+        font-size:16px;
+        cursor:pointer;
+        background:white;
+        color:#ff6b81;
+        box-shadow:0 10px 20px rgba(0,0,0,0.2);
+        transition:0.3s;
+    }
+
+    button:hover{
+        transform:scale(1.05);
+    }
+
+    .heart{
+        position:absolute;
+        font-size:20px;
+        animation:float 4s linear infinite;
+        opacity:0.8;
+    }
+
+    @keyframes float{
+        0%{transform:translateY(0);opacity:1;}
+        100%{transform:translateY(-100vh);opacity:0;}
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Reasons I Fell For You ❤️</h1>
+    <p>Click the button and let me remind you how special you are.</p>
+
+    <div id="reason"></div>
+
+    <button onclick="generateReason()">Tell me one reason</button>
+</div>
+
+<script>
+const reasons = [
+"The way you calm my mind without even trying",
+"Your smile that fixes my worst days",
+"How safe I feel when I talk to you",
+"The way you make distance feel smaller",
+"Your voice that feels like home",
+"The way you understand me like nobody else",
+"How you make ordinary moments magical",
+"The way you care about the little things",
+"Your laugh that I never get tired of",
+"The way you make my heart feel peaceful",
+"The way you support me without judgment",
+"Your kindness that melts me every time",
+"The way you make me excited about the future",
+"Because missing you proves how much you mean to me",
+"Your presence that feels like comfort",
+"The way you love me in your own unique way",
+"And honestly… because you're you ❤️"
+];
+
+function generateReason(){
+    const random = Math.floor(Math.random()*reasons.length);
+    document.getElementById("reason").innerText = reasons[random];
+    createHeart();
+}
+
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerText="❤️";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(Math.random()*20+15)+"px";
+    document.body.appendChild(heart);
+
+    setTimeout(()=>heart.remove(),4000);
+}
+</script>
+
+</body>
+</html>
